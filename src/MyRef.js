@@ -12,36 +12,14 @@ class MyRef extends Component {
     this.myInput = React.createRef();
   }
 
-  update = (event) => {
-    this.setState({
-      value: event.target.value,
-    });
-  };
-
-  componentDidUpdate(prevProps, prevState) {
-    this.myTitle.current.style.color = "red";
-  }
-
-  componentDidMount() {
+  addFocus = () => {
     this.myInput.current.focus();
-  }
-
-  handleClick = () => {
-    console.log(this.myInput.current.value);
   };
 
   render() {
     return (
       <div>
-        <h1 ref={this.myTitle}>Value:{this.state.value}</h1> {/* ref is here*/}
-        {/* <input
-          ref={this.myInput}
-          type="text"
-          value={this.state.value}
-          onChange={this.update}
-        /> */}
         <input ref={this.myInput} type="text" />
-        <button onClick={this.handleClick}>validate</button>
       </div>
     );
   }
